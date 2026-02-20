@@ -1,0 +1,6 @@
+# Data files
+*.csv
+*.parquet
+*.avro
+*.json
+*.xlsx
