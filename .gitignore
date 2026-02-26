@@ -4,3 +4,5 @@
 *.avro
 *.json
 *.xlsx
+*.duckdb
+*.duckdb.wal
