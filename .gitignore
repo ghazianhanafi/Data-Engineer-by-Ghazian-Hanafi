@@ -6,3 +6,26 @@
 *.xlsx
 *.duckdb
 *.duckdb.wal
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Airflow logs
+logs/
+
+# Postgres data
+postgres_data/
+
+# Environment variables
+.env
+
+# Mac / Windows junk
+.DS_Store
+Thumbs.db
+
+# Docker
+*.log
+
+*.db

@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+
+  postgres:
+    image: postgres:15
+    container_name: co2_postgres
+    env_file:
+      - .env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+    restart: always
+
+  airflow:
+    build: .
+    container_name: co2_airflow
+    depends_on:
+      - postgres
+    env_file:
+      - .env
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./data:/opt/airflow/data
+      - ./logs:/opt/airflow/logs
+      - ./requirements.txt:/requirements.txt
+    ports:
+      - "8080:8080"
+    command: standalone
+    restart: always
+
+volumes:
+  postgres_data:
